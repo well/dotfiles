@@ -1,0 +1,28 @@
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  ca = commit -av 
+  lo = log --graph
+  undo = reset --hard
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[core]
+  editor = mate -w
+[merge]
+  tool = opendiff
+[difftool]
+  prompt = false
+[branch]
+  autosetupmerge = true
+[help]
+  format = web
+[advice]
+  statusHints = false
+[web]
+  browser=open
