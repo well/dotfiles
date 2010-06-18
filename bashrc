@@ -20,6 +20,10 @@ mthelp()
 	cat $DOTFILEPATH/README
 }
 
+doupdate() {
+	(cd $DOTFILEPATH && git pull && ./install.sh )
+}
+
 # Color setup
 NOCOLOR=$(tput sgr0)
 BLACK=$(tput setaf 0)
