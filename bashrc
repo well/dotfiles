@@ -112,8 +112,8 @@ PROMPT_COMMAND='echo -ne "\033]0; [${USER}@${HOSTNAME} ${PWD/$HOME/~}]\007"'
 
 # Pull in our completion scripts
 if [ -f $DOTFILEPATH/bash_completion ]; then
-	BASH_COMPLETION="$DOTFILEPATH/bash_completion"
-	BASH_COMPLETION_DIR="$DOTFILEPATH/bash_completion.d"
+	export BASH_COMPLETION="$DOTFILEPATH/bash_completion"
+	export BASH_COMPLETION_DIR="$DOTFILEPATH/bash_completion.d"
 	. $DOTFILEPATH/bash_completion
 fi
 
