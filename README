@@ -1,0 +1,33 @@
+# Mat's Terminal Config
+
+## Sensible Defaults
+
+Sensible sorting defaults for common commands (`ls`, `df`, etc) are aliased by default
+`ls` now has similar workalikes in `l`, `ll` and `dir`
+
+`cd` now prints a directory listing after every directory change. 
+
+## Command Completion
+
+A local copy of `bash_completion` has been installed. This provides context sensitive argument expansion (for example, try tab completing host names on an ssh command)
+
+Note that if a machine already has global bash completion installed (in `/etc/bash_completion`) then the local completion included herein is turned off.
+
+## Directory Stacks
+
+The `cd` command now tracks directories you move in and out of. To pop the stack and go back to directories you were just in, run `popd` (or its alias, `cdb`). 
+
+NEW COMMANDS
+
+    downloadmanagedfiles:   pulls the latest copy of managed files to this machine
+    uploadmanagedfiles:     copies local version of managed files on this machine
+    copymanagedfiles:       copies the master version of managed files to the machine name passed as an argument e.g.: copymanagedfiles mat@newremotemachine.com:
+    copypublickey:				appends the master version of authorized_keys to the machine name passed as an argument e.g.: copypublickey mat@newremotemachine.com:
+						
+## Notes regarding machine names
+All machine names (such as those passed to `copymanagedfiles`) must be entered as scp connection strings. That means they must be of the form `[user@]host:`
+
+## Making local mods
+These scripts evaluate `.bashrc.local`, which can be used to hold commands 
+specific to a given machine. Note that the `.bashrc.local` file is NOT managed
+by the managedfiles scripts

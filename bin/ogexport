@@ -1,0 +1,29 @@
+#!/usr/bin/osascript
+
+on run argv
+	if length of argv is 0 then
+		return "Usage: ogexport <infile> <outfile>"
+	end if
+	
+	set i to 0
+	repeat with arg in argv
+		if i is equal to 0 then
+			set i to i + 1
+			set infile to (POSIX file (do shell script ("absname " & arg))) as string
+		else
+			set outfile to (POSIX file (do shell script ("absname " & arg))) as string
+			tell application "OmniGraffle Professional 5"
+				activate
+				
+				open file infile
+				save front window in outfile
+				--delay 0.30
+				close front window
+			end tell
+			set i to i - 1
+		end if
+	end repeat
+	
+	delay 1.0
+	tell application "OmniGraffle Professional 5" to quit application saving ask
+end run

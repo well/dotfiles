@@ -1,0 +1,12 @@
+#!/bin/bash
+# Returns the absolute filename of a given file or directory.
+if [ -d "$1" ] ; then   # Only a directory name.
+  dir="$1"
+  #unset file
+  file=""
+else
+  dir=$(dirname "$1")
+  file="/"$(basename "$1")
+fi
+# Change to the directory and display the absolute pathname.
+(cd "$dir"  > /dev/null && echo "${PWD}${file}")
