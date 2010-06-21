@@ -10,23 +10,25 @@ fi
 
 # Tell pepople about how to interact with dotfiles
 if [ ! -f $HOME/.hushlogin ] ; then
-	echo "Run 'dotfile help' to get info about the features in this dotfiles package. Touch ~/.hushlogin to quell this and all other system provided login messages"
+	echo "Run 'dotfiles help' to get info about the features in this dotfiles package. Touch ~/.hushlogin to quell this and all other system provided login messages"
 fi
 
 # Color setup
-NOCOLOR=$(tput sgr0)
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BOLD=$(tput bold)
-UNDERLINE=$(tput smul)
-BLINK=$(tput blink)
-REVERSE=$(tput rev)
+if [ $TERM ] ; then
+	NOCOLOR=$(tput sgr0)
+	BLACK=$(tput setaf 0)
+	RED=$(tput setaf 1)
+	GREEN=$(tput setaf 2)
+	YELLOW=$(tput setaf 3)
+	BLUE=$(tput setaf 4)
+	MAGENTA=$(tput setaf 5)
+	CYAN=$(tput setaf 6)
+	WHITE=$(tput setaf 7)
+	BOLD=$(tput bold)
+	UNDERLINE=$(tput smul)
+	BLINK=$(tput blink)
+	REVERSE=$(tput rev)
+fi
 
 colortest() {
 	echo -e "${NOCOLOR}COLOR_NC (No color)"

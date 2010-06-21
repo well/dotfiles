@@ -8,6 +8,11 @@ if [ -z `which brew` ] ; then
 	ruby -e "$(curl -fsS http://gist.github.com/raw/436471/install_homebrew.rb)"
 fi
 
+if [ -z `which git` ] ; then
+	echo "Installing git..."
+	sudo brew install git
+fi
+
 git clone git://github.com/mtrudel/dotfiles.git ~/.dotfiles
 
 (cd ~/.dotfiles ; ./install.sh)
