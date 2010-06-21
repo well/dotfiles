@@ -1,4 +1,4 @@
-# Mat's Terminal Config
+# Mat's dotfiles
 
 ## Sensible Defaults
 
@@ -19,15 +19,9 @@ The `cd` command now tracks directories you move in and out of. To pop the stack
 
 NEW COMMANDS
 
-    downloadmanagedfiles:   pulls the latest copy of managed files to this machine
-    uploadmanagedfiles:     copies local version of managed files on this machine
-    copymanagedfiles:       copies the master version of managed files to the machine name passed as an argument e.g.: copymanagedfiles mat@newremotemachine.com:
-    copypublickey:				appends the master version of authorized_keys to the machine name passed as an argument e.g.: copypublickey mat@newremotemachine.com:
-						
-## Notes regarding machine names
-All machine names (such as those passed to `copymanagedfiles`) must be entered as scp connection strings. That means they must be of the form `[user@]host:`
+    ssh-copy-id:				copies your public key to the indicated server. Only installed if your system doesn't have it by default
 
 ## Making local mods
 These scripts evaluate `.bashrc.local`, which can be used to hold commands 
 specific to a given machine. Note that the `.bashrc.local` file is NOT managed
-by the managedfiles scripts
+by dotfiles.

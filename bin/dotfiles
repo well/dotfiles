@@ -1,0 +1,18 @@
+update() {
+	(cd $DOTFILEPATH && git pull && ./install.sh )
+}
+
+help() {
+	cat $DOTFILEPATH/README
+}
+
+edit() {
+	$EDITOR ~/.bashrc
+}
+
+case $1 in
+	help ) help;;
+ 	update ) update;;
+ 	edit ) edit;;
+	*) echo "Unknown command $1. Try 'dotfiles help' for more info";;
+esac

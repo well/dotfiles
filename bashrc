@@ -1,7 +1,5 @@
 #
-# Mat's super .bashrc
-#
-# A tweaked out bash script that adds a bunch of useful functionality. A work in progress
+# A tweaked out bash script that adds a bunch of useful functionality.
 #
 # NOTE: ~ expansion doesn't work here, for partially unclear reasons
 
@@ -10,19 +8,10 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Tell pepople about the latest
+# Tell pepople about how to interact with dotfiles
 if [ ! -f $HOME/.hushlogin ] ; then
-	echo "Run 'mthelp' to get info about Mat's super scripts. Touch ~/.hushlogin to quell this and all other system provided login messages"
+	echo "Run 'dotfile help' to get info about the features in this dotfiles package. Touch ~/.hushlogin to quell this and all other system provided login messages"
 fi
-
-mthelp()
-{
-	cat $DOTFILEPATH/README
-}
-
-doupdate() {
-	(cd $DOTFILEPATH && git pull && ./install.sh )
-}
 
 # Color setup
 NOCOLOR=$(tput sgr0)
@@ -51,20 +40,8 @@ colortest() {
 	echo -e "${NOCOLOR}${WHITE}WHITE\t${BOLD}WHITE"
 }
 
-# Copies your public key to the given ssh host
-copypublickey()
-{
-	echo "Copying public key to $1..."
-	cat ~/.ssh/id_dsa.pub | ssh $1 "mkdir -p ~/.ssh && touch ~/.ssh/authorized_keys && cat - >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && chmod 700 ~/.ssh"
-	echo "Done"
-}
-
 gemedit() {
 	open `dirname \`gem which $1\``
-}
-
-dobash() {
-	$EDITOR ~/.bashrc
 }
 
 #redefine pushd and popd so they don't output the directory stack
