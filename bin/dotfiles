@@ -3,7 +3,7 @@ update() {
 }
 
 help() {
-	cat $DOTFILEPATH/README
+	cat $DOTFILEPATH/README.md
 }
 
 edit() {
