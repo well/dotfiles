@@ -13,7 +13,7 @@ if [ -z `which git` ] ; then
 	sudo brew install git
 fi
 
-if [ -d $(HOME)/.dotfiles ] ; then
+if [ -d ${HOME}/.dotfiles ] ; then
 	echo <<-EOF
 	~/.dotfiles already exists. Run the following manually:
 	
@@ -23,6 +23,6 @@ if [ -d $(HOME)/.dotfiles ] ; then
 	exit 1
 fi
 
-git clone git://github.com/mtrudel/dotfiles.git $(HOME)/.dotfiles
+git clone git://github.com/mtrudel/dotfiles.git ${HOME}/.dotfiles
 
-~/.dotfiles/bin/dotfiles link
+${HOME}/.dotfiles/bin/dotfiles link
