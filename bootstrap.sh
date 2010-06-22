@@ -20,6 +20,7 @@ if [ -d ~/.dotfiles ] ; then
 	git clone git://github.com/mtrudel/dotfiles.git
 	<path to dotfiles repo>/bin/dotfiles link
 	EOF
+	exit 1
 fi
 
 git clone git://github.com/mtrudel/dotfiles.git ~/.dotfiles
