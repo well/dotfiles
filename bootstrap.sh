@@ -16,10 +16,10 @@ fi
 if [ -d ${HOME}/.dotfiles ] ; then
 	echo "~/.dotfiles already exists. Run the following manually:"
 	echo "git clone git://github.com/mtrudel/dotfiles.git"
-	echo "<path to dotfiles repo>/bin/dotfiles link DOTFILEPATH=<path to dotfiles repo>"
+	echo "DOTFILEPATH=<path to dotfiles repo> <path to dotfiles repo>/bin/dotfiles link"
 	exit 1
 fi
 
 git clone git://github.com/mtrudel/dotfiles.git ${HOME}/.dotfiles
 
-${HOME}/.dotfiles/bin/dotfiles link DOTFILEPATH=${HOME}/.dotfiles
+DOTFILEPATH=${HOME}/.dotfiles ${HOME}/.dotfiles/bin/dotfiles link 
