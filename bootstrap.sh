@@ -13,6 +13,15 @@ if [ -z `which git` ] ; then
 	sudo brew install git
 fi
 
+if [ -d ~/.dotfiles ] ; then
+	echo <<-EOF
+	~/.dotfiles already exists. Run the following manually:
+	
+	git clone git://github.com/mtrudel/dotfiles.git
+	<path to dotfiles repo>/install.sh
+	EOF
+fi
+
 git clone git://github.com/mtrudel/dotfiles.git ~/.dotfiles
 
 (cd ~/.dotfiles ; ./install.sh)

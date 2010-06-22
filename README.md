@@ -2,9 +2,13 @@
 
 Run the following in a terminal:
 
-    curl http://github.com/mtrudel/dotfiles/raw/master/bootstrap.sh | bash    
+    curl http://github.com/mtrudel/dotfiles/raw/master/bootstrap.sh > /tmp/bootstrap.sh ; bash /tmp/bootstrap.sh ; rm /tmp/bootstrap.sh
 
 # What you get
+
+## New Commands
+
+    ssh-copy-id:				copies your public key to the indicated server. Only installed if your system doesn't have it by default
 
 ## Sensible Defaults
 
@@ -19,15 +23,15 @@ A local copy of `bash_completion` has been installed. This provides context sens
 
 Note that if a machine already has global bash completion installed (in `/etc/bash_completion`) then the local completion included herein is turned off.
 
+## Automatic updates
+
+You can get the latest version of dotfiles at any time by running `dotfiles update`. 
+
 ## Directory Stacks
 
 The `cd` command now tracks directories you move in and out of. To pop the stack and go back to directories you were just in, run `popd` (or its alias, `cdb`). 
 
-NEW COMMANDS
-
-    ssh-copy-id:				copies your public key to the indicated server. Only installed if your system doesn't have it by default
-
-## Making local mods
+# Making local mods
 These scripts evaluate `.bashrc.local`, which can be used to hold commands 
 specific to a given machine. Note that the `.bashrc.local` file is NOT managed
 by dotfiles.
