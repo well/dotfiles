@@ -14,12 +14,9 @@ if [ -z `which git` ] ; then
 fi
 
 if [ -d ${HOME}/.dotfiles ] ; then
-	echo <<-EOF
-	~/.dotfiles already exists. Run the following manually:
-	
-	git clone git://github.com/mtrudel/dotfiles.git
-	<path to dotfiles repo>/bin/dotfiles link
-	EOF
+	echo "~/.dotfiles already exists. Run the following manually:"
+	echo "git clone git://github.com/mtrudel/dotfiles.git"
+	echo "<path to dotfiles repo>/bin/dotfiles link"
 	exit 1
 fi
 
