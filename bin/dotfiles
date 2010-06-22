@@ -6,7 +6,6 @@ link_file() {
 }
 
 link() {
-	echo ${DOTFILEPATH:=`cd \`dirname __FILE__\` > /dev/null && pwd`}
 	link_file $DOTFILEPATH/dotmakefile  ${HOME}/.makefile
 	link_file $DOTFILEPATH/irbrc ${HOME}/.irbrc
 	link_file $DOTFILEPATH/bashrc ${HOME}/.bashrc
