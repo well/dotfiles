@@ -18,10 +18,10 @@ if [ -d ~/.dotfiles ] ; then
 	~/.dotfiles already exists. Run the following manually:
 	
 	git clone git://github.com/mtrudel/dotfiles.git
-	<path to dotfiles repo>/install.sh
+	<path to dotfiles repo>/bin/dotfiles link
 	EOF
 fi
 
 git clone git://github.com/mtrudel/dotfiles.git ~/.dotfiles
 
-(cd ~/.dotfiles ; ./install.sh)
+~/.dotfiles/bin/dotfiles link

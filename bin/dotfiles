@@ -1,5 +1,24 @@
+link_file() {
+	if [ -f $2 ] ; then
+		mv $2 $2.orig
+	fi
+	ln -fns $1 $2		
+}
+
+link() {
+	${DOTFILEPATH:=`cd \`dirname __FILE__\` > /dev/null && pwd`}
+	link_file $DOTFILEPATH/dotmakefile  ${HOME}/.makefile
+	link_file $DOTFILEPATH/irbrc ${HOME}/.irbrc
+	link_file $DOTFILEPATH/bashrc ${HOME}/.bashrc
+	link_file $DOTFILEPATH/bash_profile ${HOME}/.bash_profile
+	link_file $DOTFILEPATH/inputrc ${HOME}/.inputrc
+	link_file $DOTFILEPATH/gitignore ${HOME}/.gitignore
+	link_file $DOTFILEPATH/gitconfig ${HOME}/.gitconfig
+	link_file $DOTFILEPATH/bin ${HOME}/.bin
+}
+
 update() {
-	(cd $DOTFILEPATH && git pull && ./install.sh )
+	(cd $DOTFILEPATH && git pull && link)
 }
 
 help() {
@@ -12,6 +31,7 @@ edit() {
 
 case $1 in
 	help ) help;;
+	link ) link;;
  	update ) update;;
  	edit ) edit;;
 	*) echo "Unknown command $1. Try 'dotfiles help' for more info";;
