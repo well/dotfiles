@@ -14,7 +14,7 @@ if [ ! -f $HOME/.hushlogin ] ; then
 fi
 
 # Color setup
-if [ $TERM ] ; then
+if [ "$TERM" != "dumb" ] ; then
 	NOCOLOR=$(tput sgr0)
 	BLACK=$(tput setaf 0)
 	RED=$(tput setaf 1)
