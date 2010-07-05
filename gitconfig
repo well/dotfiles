@@ -4,6 +4,7 @@
   co = checkout
   br = branch
   ca = commit -av 
+  mg = merge --no-ff
   lo = log --graph
   undo = reset --hard
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
