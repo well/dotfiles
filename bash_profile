@@ -10,8 +10,8 @@ fi
 
 # User specific environment (stuff that will get passed on to subshells)
 
-export PATH=$PATH:$HOME/.bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/.gem/ruby/1.8/bin:
-export MANPATH=$MANPATH:/opt/local/share/man:/usr/local/man
+export PATH=$HOME/.bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:~/.gem/ruby/1.8/bin:$PATH
+export MANPATH=/usr/local/man:/opt/local/share/man:$MANPATH
 
 if [ -x `which mate` ] 
 then
