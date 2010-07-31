@@ -7,13 +7,9 @@ link_file() {
 
 link() {
 	link_file $DOTFILEPATH/dotmakefile  ${HOME}/.makefile
-	link_file $DOTFILEPATH/irbrc ${HOME}/.irbrc
-	link_file $DOTFILEPATH/bashrc ${HOME}/.bashrc
-	link_file $DOTFILEPATH/bash_profile ${HOME}/.bash_profile
-	link_file $DOTFILEPATH/inputrc ${HOME}/.inputrc
-	link_file $DOTFILEPATH/gitignore ${HOME}/.gitignore
-	link_file $DOTFILEPATH/gitconfig ${HOME}/.gitconfig
-	link_file $DOTFILEPATH/bin ${HOME}/.bin
+        for i in irbrc bashrc bash_profile inputrc gitignore gitconfig bin ; do
+          link_file $DOTFILEPATH/$i ${HOME}/.$i
+        done
 }
 
 update() {
