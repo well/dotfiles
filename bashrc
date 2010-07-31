@@ -43,7 +43,7 @@ colortest() {
 }
 
 gemedit() {
-	open `dirname \`gem which $1\``
+	$EDITOR `dirname \`gem which $1\``
 }
 
 #redefine pushd and popd so they don't output the directory stack
