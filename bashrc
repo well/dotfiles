@@ -47,22 +47,17 @@ gemedit() {
 }
 
 #redefine pushd and popd so they don't output the directory stack
-pushd()
+cd()
 {
-	builtin pushd "$@" > /dev/null
+	pushd "$@" > /dev/null
 	ls -lhG
 }
 
-popd()
+cdb()
 {
-	builtin popd "$@" > /dev/null
+	popd "$@" > /dev/null
 	ls -lhG
 }
-
-#alias cd so it uses the directory stack
-alias cd='pushd'
-#aliad cdb as a command that goes one directory back in the stack
-alias cdb='popd'
 
 alias cd..='cd ..'
 alias ..='cd ..'

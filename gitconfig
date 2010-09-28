@@ -8,6 +8,7 @@
   lo = log --graph
   undo = reset --hard
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  amend = commit --amend
 [color]
   branch = auto
   diff = auto
