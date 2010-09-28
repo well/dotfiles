@@ -1,33 +1,42 @@
 link_file() {
-	if [ -f $2 -a ! -L $2 ] ; then
-		mv $2 $2.orig
-	fi
-	ln -fns $1 $2		
+  if [ -f $2 -a ! -L $2 ] ; then
+    mv $2 $2.orig
+  fi
+  ln -fns $1 $2
 }
 
 link() {
-	link_file $DOTFILEPATH/dotmakefile  ${HOME}/.makefile
-        for i in irbrc bashrc bash_profile inputrc gitignore gitconfig bin ; do
-          link_file $DOTFILEPATH/$i ${HOME}/.$i
-        done
+  link_file $DOTFILEPATH/dotmakefile  ${HOME}/.makefile
+  for i in irbrc bashrc bash_profile inputrc gitignore gitconfig bin ssh ; do
+    link_file $DOTFILEPATH/$i ${HOME}/.$i
+  done
 }
 
 update() {
-	(cd $DOTFILEPATH && git pull && link)
+  (cd $DOTFILEPATH && git pull && link)
 }
 
 help() {
-	cat $DOTFILEPATH/README.md
+  cat <<-EOF
+
+	usage: dotfiles <command>
+
+	where <command> is one of
+	  help:			shows this help message
+	  update:		pulls down the latest updates and links them into ~
+	  edit:			opens your dotfiles directory in $EDITOR
+
+	EOF
 }
 
 edit() {
-	$EDITOR ~/.bashrc
+  $EDITOR $DOTFILEPATH
 }
 
 case $1 in
-	help ) help;;
-	link ) link;;
- 	update ) update;;
- 	edit ) edit;;
-	*) echo "Unknown command $1. Try 'dotfiles help' for more info";;
+  help ) help;;
+  link ) link;;
+  update ) update;;
+  edit ) edit;;
+  *) echo "Unknown command $1. Try 'dotfiles help' for more info";;
 esac
