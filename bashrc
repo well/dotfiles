@@ -81,9 +81,24 @@ alias h='history|grep'
 # Set readline vars
 set completion-ignore-case on
 
+whereami()
+{
+	export THIS_IS_NOT_MY_BEAUTIFUL_HOUSE=$1
+}
+
+__thereami()
+{
+	local curtask="$THIS_IS_NOT_MY_BEAUTIFUL_HOUSE"
+	if [ -n "$curtask" ]; then
+		if [ -n ${1-} ]; then
+			printf "${1-}" $curtask
+		fi
+	fi
+}
+
 # Now to pimp out our prompt
 export LSCOLORS=dxexbxbxcxbxbxfx
-PS1="[\[${BLUE}\]\u@\h \[${BOLD}\]\w\[${NOCOLOR}\]\$(__git_ps1 ' (\[${MAGENTA}\]%s\[${NOCOLOR}\])')]\\$ "
+PS1="\$(__thereami '\[${RED}\]!!%s!!\[${NOCOLOR}\]')[\[${BLUE}\]\u@\h \[${BOLD}\]\w\[${NOCOLOR}\]\$(__git_ps1 ' (\[${MAGENTA}\]%s\[${NOCOLOR}\])')]\\$ "
 
 # Prompt command updates our terminal window title
 PROMPT_COMMAND='echo -ne "\033]0; [${USER}@${HOSTNAME} ${PWD/$HOME/~}]\007"'
