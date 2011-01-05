@@ -2,7 +2,7 @@
 
 Run the following in a terminal:
 
-    bash <(curl http://github.com/mtrudel/dotfiles/raw/master/bootstrap.sh)
+    bash <(curl https://github.com/mtrudel/dotfiles/raw/master/bootstrap.sh)
 
 *Beware* that this will overwrite any changes you've made to your dotfiles. 
 Your original files (if present) will be left in place with a .orig extension.

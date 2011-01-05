@@ -9,7 +9,7 @@ if [ -z `which git` ] ; then
 
 	if [ -z `which brew` ] ; then
 		echo "Installing homebrew..."
-		ruby -e "$(curl -fsS http://gist.github.com/raw/436471/install_homebrew.rb)"
+		ruby -e "$(curl -fsS https://gist.github.com/raw/436471/install_homebrew.rb)"
 	fi
 
 	echo "Installing git..."
