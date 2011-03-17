@@ -9,17 +9,18 @@
   undo = reset --hard
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   amend = commit --amend
+  unstage = rm --cached
+  tinylog = log --format=oneline --abbrev-commit
+
 [color]
   branch = auto
   diff = auto
   interactive = auto
   status = auto
-[core]
-  editor = mate -w
 [merge]
   tool = opendiff
 [difftool]
-  prompt = false
+	prompt = false
 [branch]
   autosetupmerge = true
 [help]
@@ -28,3 +29,7 @@
   statusHints = false
 [web]
   browser=open
+[diff]
+	tool = vimdiff
+[core]
+	editor = /usr/bin/vim

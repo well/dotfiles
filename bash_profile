@@ -10,19 +10,13 @@ fi
 
 # User specific environment (stuff that will get passed on to subshells)
 
-export PATH=$HOME/.bin:~/.gem/ruby/1.8/bin:$PATH
+export PATH=$HOME/.bin:$PATH
 export MANPATH=/usr/local/man:$MANPATH
 
-if [ -x `which mate` ] 
-then
-  export EDITOR=mate
-  export CVSEDITOR="mate -w"
-  export SVN_EDITOR="mate -w"
-else
-  export EDITOR=vim
-  export CVSEDITOR=vim
-  export SVN_EDITOR=vim
-fi
+export EDITOR=vim
+export CVSEDITOR=vim
+export SVN_EDITOR=vim
+
 unset USERNAME
 export CLICOLOR
 
@@ -30,3 +24,4 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 
 export GREP_OPTIONS="-I --color --exclude=*.svn-base"
+export NODE_PATH=/usr/local/lib/node

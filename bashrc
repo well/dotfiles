@@ -4,14 +4,10 @@
 # NOTE: ~ expansion doesn't work here, for partially unclear reasons
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+[ -f /etc/bashrc ] && . /etc/bashrc
 
 # Tell pepople about how to interact with dotfiles
-if [ ! -f $HOME/.hushlogin ] ; then
-	echo "Run 'dotfiles help' to get info about the features in this dotfiles package. Touch ~/.hushlogin to quell this and all other system provided login messages"
-fi
+[ ! -f $HOME/.hushlogin ] && echo "Run 'dotfiles help' to get info about the features in this dotfiles package. Touch ~/.hushlogin to quell this and all other system provided login messages"
 
 # Color setup
 if [ "$TERM" != "dumb" ] ; then
@@ -69,7 +65,6 @@ alias ls='ls -G'
 alias ls-='ls -la #'
 alias df='df -h'
 alias gdb="gdb -q"
-alias make="make -f ~/.makefile"
     
 # Resize our window oppourtunistically
 shopt -s checkwinsize
@@ -83,7 +78,7 @@ set completion-ignore-case on
 
 whereami()
 {
-	export THIS_IS_NOT_MY_BEAUTIFUL_HOUSE=$1
+	export THIS_IS_NOT_MY_BEAUTIFUL_HOUSE=$@
 }
 
 __thereami()
@@ -111,11 +106,7 @@ if [ -f $DOTFILEPATH/bash_completion ]; then
 fi
 
 # Source personal definitions -- these are ones that don't belong in a universal bashrc
-if [ -f $DOTFILEPATH/bashrc.private ]; then
-	. $DOTFILEPATH/bashrc.private
-fi
+[ -f $DOTFILEPATH/bashrc.private ] &&	. $DOTFILEPATH/bashrc.private
 
 # Source local definitions -- these aren't copied between machines
-if [ -f $DOTFILEPATH/bashrc.local ]; then
-	. $DOTFILEPATH/bashrc.local
-fi
+[ -f $DOTFILEPATH/bashrc.local ] && . $DOTFILEPATH/bashrc.local
