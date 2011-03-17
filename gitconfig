@@ -33,3 +33,4 @@
 	tool = vimdiff
 [core]
 	editor = /usr/bin/vim
+	excludesfile = ~/.gitignore
